@@ -1,0 +1,5 @@
+def remote_branches = ['bash', '-c', "git ls-remote --heads gitUrl.git | awk \'{print \$2}\'"].execute().text.tokenize()
+
+remote_branches.collect {
+    it.substring(11).tokenize()[0]
+}
